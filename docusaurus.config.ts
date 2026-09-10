@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'OpenMAVCam',
   tagline: 'Open MAVLink camera platform for autonomous systems',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/open_cam.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -71,7 +71,7 @@ const config: Config = {
       title: 'OpenMAVCam',
       logo: {
         alt: 'OpenMAVCam',
-        src: 'img/logo.svg',
+        src: 'img/open_cam.png',
       },
       items: [
         {

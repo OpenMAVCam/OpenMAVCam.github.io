@@ -8,6 +8,8 @@ test('Docusaurus is configured for the OpenMAVCam organization site', async () =
   assert.match(config, /baseUrl:\s*'\/'/);
   assert.match(config, /organizationName:\s*'OpenMAVCam'/);
   assert.match(config, /projectName:\s*'OpenMAVCam\.github\.io'/);
+  assert.match(config, /favicon:\s*'img\/open_cam\.png'/);
+  assert.match(config, /src:\s*'img\/open_cam\.png'/);
 });
 
 test('the Docs navbar sidebar has the OpenMAVCam overview', async () => {
