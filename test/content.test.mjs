@@ -19,8 +19,11 @@ test('the Docs navbar sidebar has the OpenMAVCam overview', async () => {
 
 test('D64TR product page renders typed specifications', async () => {
   const page = await readFile('docs/products/d64tr.mdx', 'utf8');
+  const home = await readFile('src/pages/index.tsx', 'utf8');
   assert.match(page, /title: D64TR/);
   assert.match(page, /ProductSpecs/);
+  assert.match(page, /d64tr-on-uav\.png/);
+  assert.doesNotMatch(home, /d64tr-on-uav\.png/);
 });
 
 test('D64TR build and deployment docs contain the supported image workflow', async () => {
