@@ -74,6 +74,18 @@ test('homepage feature cards include local capability icons', async () => {
   }
 });
 
+test('homepage provides a dedicated dark palette for the hero and capability cards', async () => {
+  const styles = await readFile('src/pages/index.module.css', 'utf8');
+
+  for (const selector of [
+    "[data-theme='dark'] .hero",
+    "[data-theme='dark'] .hero h1",
+    "[data-theme='dark'] .grid article",
+    "[data-theme='dark'] .grid h3",
+    "[data-theme='dark'] .sectionIntro h2",
+  ]) assert.ok(styles.includes(selector), `dark palette includes ${selector}`);
+});
+
 test('D64TR build and deployment docs contain the supported image workflow', async () => {
   const build = await readFile('docs/products/d64tr/build.md', 'utf8');
   const deploy = await readFile('docs/products/d64tr/deploy.md', 'utf8');

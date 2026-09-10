@@ -7,4 +7,17 @@
 .productSection { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:5rem 0; border-top:1px solid #d9edf8; }.productSection p:not(.kicker) { color:#547184; font-size:1.1rem; line-height:1.6; }.productSection img { width:100%; border-radius:1rem; box-shadow:0 1rem 3rem #2c93c229; }.productLinks { display:flex; gap:1.25rem; margin-top:1.25rem; }.productLinks a { color:#087dce; font-weight:700; }
 .pathSection { padding:5rem 0; }.pathSection h2 { max-width:40rem; }
 .path { grid-template-columns:repeat(4,1fr); }.path article { padding:1.25rem 0; border-top:2px solid #9dd9f7; }.path span { color:#078dd5; font-weight:700; }.path h3 { margin:.5rem 0; color:#0c2c44; }.path p { color:#547184; }
+
+[data-theme='dark'] .hero { background:linear-gradient(90deg,#071622f2 0%,#071622e8 44%,#0b2837c9 65%,#0b28375c 100%),url('/img/home/d64tr-payload-hero.png') center/cover; }
+[data-theme='dark'] .hero h1, [data-theme='dark'] .sectionIntro h2, [data-theme='dark'] .productSection h2, [data-theme='dark'] .pathSection h2, [data-theme='dark'] .grid h3, [data-theme='dark'] .path h3 { color:#edf8ff; }
+[data-theme='dark'] .hero p:not(.kicker), [data-theme='dark'] .productSection p:not(.kicker), [data-theme='dark'] .path p { color:#bdd7e8; }
+[data-theme='dark'] .kicker, [data-theme='dark'] .path span { color:#63c9f5; }
+[data-theme='dark'] .compatibility { color:#70d2ff !important; }
+[data-theme='dark'] .actions :global(.button--primary) { background:#168dcc; border-color:#168dcc; }
+[data-theme='dark'] .actions :global(.button--secondary) { background:#102d40; color:#dff5ff; border-color:#3b7e9f; }
+[data-theme='dark'] .grid article { background:#102a3b; border-color:#2e6684; box-shadow:0 .5rem 1.5rem #00000038; }
+[data-theme='dark'] .productSection { border-top-color:#285670; }
+[data-theme='dark'] .productSection img { box-shadow:0 1rem 3rem #00000066; }
+[data-theme='dark'] .productLinks a { color:#73d2fa; }
+[data-theme='dark'] .path article { border-top-color:#397d9e; }
 @media (max-width: 768px) { .hero { min-height:540px; background:linear-gradient(#f8fcfff5,#f8fcffe0),url('/img/home/d64tr-payload-hero.png') 68% center/cover; }.heroContent { padding:5rem 0; }.grid, .path, .productSection { grid-template-columns:1fr; }.productSection { gap:2rem; }.actions { margin-bottom:0; } }
