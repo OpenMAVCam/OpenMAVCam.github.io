@@ -85,6 +85,28 @@ test('D64TR build and deployment docs contain the supported image workflow', asy
   assert.match(deploy, /fastboot --slot all flash system/);
 });
 
+test('OpenMAVCam overview explains QGroundControl and dual-sensor viewing', async () => {
+  const overview = await readFile('docs/overview/what-is-openmavcam.md', 'utf8');
+
+  for (const phrase of [
+    'What OpenMAVCam Can Do',
+    'MAVLink-native camera software stack',
+    'PX4 and ArduPilot',
+    'QGroundControl Ready',
+    'Visible + Thermal, Together',
+    'AI Functions for Your Mission',
+    'person detection',
+    'custom-trained models',
+    'Side-by-side',
+  ]) assert.ok(overview.includes(phrase), `overview includes ${phrase}`);
+
+  for (const asset of ['qgroundcontrol-mountain-d64tr.png', 'visible-thermal-side-by-side.png', 'ai-person-detection-qgc.png']) {
+    await access(`static/img/overview/${asset}`);
+  }
+
+  assert.match(overview, /Side-by-side visible and thermal streams from a D64TR-class dual-sensor payload/);
+});
+
 test('Pages deployment publishes the build artifact with least privilege', async () => {
   const workflow = await readFile('.github/workflows/deploy-pages.yml', 'utf8');
   for (const value of ['actions/configure-pages@v5', 'actions/upload-pages-artifact@v4', 'path: build', 'actions/deploy-pages@v4', 'pages: write', 'id-token: write']) {
