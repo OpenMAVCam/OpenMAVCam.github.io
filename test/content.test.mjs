@@ -27,3 +27,10 @@ test('Pages deployment publishes the build artifact with least privilege', async
     assert.match(workflow, new RegExp(value.replace(/[/.+]/g, '\\$&')));
   }
 });
+
+test('test command uses Node built-in test discovery', async () => {
+  const packageJson = await readFile('package.json', 'utf8');
+  assert.match(packageJson, /"test": "node --test"/);
+  assert.doesNotMatch(packageJson, /"test": "node --test test"/);
+  assert.doesNotMatch(packageJson, /test\/\*\*\/\*\.test\.mjs/);
+});
