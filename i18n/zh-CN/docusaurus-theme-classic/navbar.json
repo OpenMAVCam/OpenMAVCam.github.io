@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "OpenMAVCam",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "OpenMAVCam",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Products": {
+    "message": "Products",
+    "description": "Navbar item with label Products"
+  },
+  "item.label.Releases": {
+    "message": "Releases",
+    "description": "Navbar item with label Releases"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

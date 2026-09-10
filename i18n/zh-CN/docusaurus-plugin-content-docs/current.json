@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Overview": {
+    "message": "Overview",
+    "description": "The label for category 'Overview' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Products": {
+    "message": "Products",
+    "description": "The label for category 'Products' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.D64TR": {
+    "message": "D64TR",
+    "description": "The label for category 'D64TR' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Architecture": {
+    "message": "Architecture",
+    "description": "The label for category 'Architecture' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category 'Getting Started' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Protocol": {
+    "message": "Protocol",
+    "description": "The label for category 'Protocol' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Hardware Integration": {
+    "message": "Hardware Integration",
+    "description": "The label for category 'Hardware Integration' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.API Reference": {
+    "message": "API Reference",
+    "description": "The label for category 'API Reference' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Developer Guide": {
+    "message": "Developer Guide",
+    "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"
+  }
+}
