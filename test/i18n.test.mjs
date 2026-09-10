@@ -64,3 +64,17 @@ test('Chinese overview product and architecture pages mirror active English IDs'
   assert.match(camera, /MAVSDK/);
   assert.match(camera, /camera-call-flow\.svg/);
 });
+
+test('Chinese guides preserve commands and Protocol preserves MAVLink identifiers', async () => {
+  const root = 'i18n/zh-CN/docusaurus-plugin-content-docs/current';
+  const pages = [
+    'getting-started/build.md', 'getting-started/autopilot.md', 'getting-started/qgroundcontrol.md',
+    'protocol/mavlink-camera-protocol.md', 'protocol/camera-information.md', 'protocol/capture.md',
+    'protocol/zoom.md', 'protocol/tracking.md', 'protocol/status.md',
+  ];
+  for (const page of pages) await access(`${root}/${page}`);
+  assert.match(await readFile(`${root}/getting-started/qgroundcontrol.md`, 'utf8'), /make px4_sitl gz_x500/);
+  assert.match(await readFile(`${root}/protocol/mavlink-camera-protocol.md`, 'utf8'), /CAMERA_INFORMATION/);
+  const sidebar = await readFile('i18n/zh-CN/docusaurus-plugin-content-docs/current.json', 'utf8');
+  for (const label of ['概览', '快速开始', '协议']) assert.match(sidebar, new RegExp(label));
+});

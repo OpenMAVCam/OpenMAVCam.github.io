@@ -4,11 +4,11 @@
     "description": "The label for version current"
   },
   "sidebar.docsSidebar.category.Overview": {
-    "message": "Overview",
+    "message": "概览",
     "description": "The label for category 'Overview' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Products": {
-    "message": "Products",
+    "message": "产品",
     "description": "The label for category 'Products' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.D64TR": {
@@ -16,27 +16,27 @@
     "description": "The label for category 'D64TR' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Architecture": {
-    "message": "Architecture",
+    "message": "架构",
     "description": "The label for category 'Architecture' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Getting Started": {
-    "message": "Getting Started",
+    "message": "快速开始",
     "description": "The label for category 'Getting Started' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Protocol": {
-    "message": "Protocol",
+    "message": "协议",
     "description": "The label for category 'Protocol' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Hardware Integration": {
-    "message": "Hardware Integration",
+    "message": "硬件集成",
     "description": "The label for category 'Hardware Integration' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.API Reference": {
-    "message": "API Reference",
+    "message": "API 参考",
     "description": "The label for category 'API Reference' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Developer Guide": {
-    "message": "Developer Guide",
+    "message": "开发者指南",
     "description": "The label for category 'Developer Guide' in sidebar 'docsSidebar'"
   }
 }
