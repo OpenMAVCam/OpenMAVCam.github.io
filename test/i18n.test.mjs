@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {readFile} from 'node:fs/promises';
+import {access, readFile} from 'node:fs/promises';
 
 test('Docusaurus provides root English and prefixed Simplified Chinese locales', async () => {
   const config = await readFile('docusaurus.config.ts', 'utf8');
@@ -35,4 +35,32 @@ test('the homepage and global chrome use Chinese messages without duplicating im
   assert.match(navbar, /"message": "产品"/);
   assert.match(navbar, /"message": "发布说明"/);
   assert.match(footer, /"message": "快速开始"/);
+});
+
+test('Chinese overview product and architecture pages mirror active English IDs', async () => {
+  const root = 'i18n/zh-CN/docusaurus-plugin-content-docs/current';
+  const pages = [
+    'overview/what-is-openmavcam.md',
+    'overview/why-openmavcam.md',
+    'overview/supported-platforms.md',
+    'products/d64tr.mdx',
+    'products/d64tr/build.md',
+    'products/d64tr/deploy.md',
+    'architecture/camera.md',
+    'architecture/mavlink.md',
+    'architecture/video-streaming.md',
+    'architecture/gimbal.md',
+    'architecture/ai-tracking.md',
+    'architecture/ros2.md',
+  ];
+
+  for (const page of pages) await access(`${root}/${page}`);
+
+  assert.match(
+    await readFile(`${root}/overview/what-is-openmavcam.md`, 'utf8'),
+    /title: 什么是 OpenMAVCam？/,
+  );
+  const camera = await readFile(`${root}/architecture/camera.md`, 'utf8');
+  assert.match(camera, /MAVSDK/);
+  assert.match(camera, /camera-call-flow\.svg/);
 });
