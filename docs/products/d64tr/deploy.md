@@ -25,4 +25,4 @@ fastboot --slot all flash system qti-ubuntu-robotics-image-qrb5165-rb5-sysfs.ext
 fastboot reboot
 ```
 
-Do not interrupt the system-image transfer: the filesystem image is several gigabytes. After the target restarts, continue with the [minimum demo](/docs/getting-started/minimum-demo).
+Do not interrupt the system-image transfer: the filesystem image is several gigabytes. After the target restarts, continue with [Autopilot integration](/docs/getting-started/autopilot).

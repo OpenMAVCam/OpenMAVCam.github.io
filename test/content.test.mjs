@@ -85,6 +85,96 @@ test('D64TR build and deployment docs contain the supported image workflow', asy
   assert.match(deploy, /fastboot --slot all flash system/);
 });
 
+test('Getting Started combines build and deploy while retaining the shared flash sequence', async () => {
+  const sidebar = await readFile('sidebars.ts', 'utf8');
+  const guide = await readFile('docs/getting-started/build.md', 'utf8');
+  const gettingStarted = sidebar.match(/label: 'Getting Started', items: \[([^\]]+)\]/)?.[1] ?? '';
+
+  assert.ok(gettingStarted.includes('getting-started/build'));
+  assert.ok(!gettingStarted.includes('getting-started/deploy'));
+  assert.match(guide, /title: Build and Deploy/);
+  assert.match(guide, /Build steps are product-specific/);
+  assert.match(guide, /Build the D64TR Image/);
+
+  for (const command of [
+    'adb reboot bootloader',
+    'fastboot devices',
+    'fastboot --slot all flash boot',
+    'fastboot --slot all flash system',
+    'fastboot reboot',
+  ]) assert.match(guide, new RegExp(command.replace(/[/.+]/g, '\\$&')));
+
+  await assert.rejects(access('docs/getting-started/deploy.md'));
+});
+
+test('Minimum Demo is removed from the site navigation and active documentation', async () => {
+  const sidebar = await readFile('sidebars.ts', 'utf8');
+  const home = await readFile('src/pages/index.tsx', 'utf8');
+  const buildAndDeploy = await readFile('docs/getting-started/build.md', 'utf8');
+  const d64tr = await readFile('docs/products/d64tr.mdx', 'utf8');
+  const d64trDeploy = await readFile('docs/products/d64tr/deploy.md', 'utf8');
+  const config = await readFile('docusaurus.config.ts', 'utf8');
+
+  await assert.rejects(access('docs/getting-started/minimum-demo.md'));
+  for (const content of [sidebar, home, buildAndDeploy, d64tr, d64trDeploy, config]) {
+    assert.doesNotMatch(content, /minimum-demo/);
+  }
+  assert.match(home, /to="\/docs\/getting-started\/build"/);
+  assert.match(buildAndDeploy, /getting-started\/autopilot/);
+  assert.match(config, /to: '\/docs\/getting-started\/build'/);
+});
+
+test('Autopilot and QGroundControl guides separate real integration from camera-only simulation', async () => {
+  const sidebar = await readFile('sidebars.ts', 'utf8');
+  const autopilot = await readFile('docs/getting-started/autopilot.md', 'utf8');
+  const qgc = await readFile('docs/getting-started/qgroundcontrol.md', 'utf8');
+
+  assert.match(sidebar, /getting-started\/autopilot/);
+  assert.match(sidebar, /getting-started\/qgroundcontrol/);
+  assert.doesNotMatch(sidebar, /px4-ardupilot-qgc/);
+  await assert.rejects(access('docs/getting-started/px4-ardupilot-qgc.md'));
+  await access('static/img/getting-started/autopilot-uart-wiring.svg');
+
+  assert.match(autopilot, /title: Autopilot/);
+  assert.match(autopilot, /docs\.px4\.io/);
+  assert.match(autopilot, /ardupilot\.org/);
+  assert.match(autopilot, /Camera Gimbal TX/);
+  assert.match(autopilot, /Flight Controller RX/);
+
+  assert.match(qgc, /title: QGroundControl/);
+  assert.match(qgc, /v5\.1\.0/);
+  assert.match(qgc, /5\.1\.0_custom/);
+  assert.match(qgc, /make px4_sitl gz_x500/);
+  assert.match(qgc, /camera Ethernet/);
+  assert.match(qgc, /does not validate gimbal control/);
+  assert.match(qgc, /real autopilot/);
+});
+
+test('Configuration is a Getting Started guide with rebooted preview settings', async () => {
+  const sidebar = await readFile('sidebars.ts', 'utf8');
+  const configuration = await readFile('docs/api-reference/configuration-interfaces.md', 'utf8');
+  const gettingStarted = sidebar.match(/label: 'Getting Started', items: \[([^\]]+)\]/)?.[1] ?? '';
+  const apiReference = sidebar.match(/label: 'API Reference', items: \[([^\]]+)\]/)?.[1] ?? '';
+
+  assert.ok(gettingStarted.includes('api-reference/configuration-interfaces'));
+  assert.ok(!apiReference.includes('api-reference/configuration-interfaces'));
+  assert.match(configuration, /title: Configuration/);
+  assert.match(configuration, /## Video Streaming/);
+  assert.match(configuration, /video streaming preview/);
+  assert.match(configuration, /H\.265.*UVC.*cannot display/s);
+
+  for (const setting of [
+    'persist.video.preview.mode "1920x1080@30"',
+    'persist.video.preview.mode "1280x720@30"',
+    'persist.video.preview.bitrate "10000000"',
+    'persist.video.preview.encoder "h265"',
+    'persist.video.preview.encoder "h264"',
+  ]) {
+    const block = ['adb shell', `setprop ${setting}`, 'sync', 'reboot'].join('\n');
+    assert.ok(configuration.includes(block), `configuration contains reboot workflow for ${setting}`);
+  }
+});
+
 test('OpenMAVCam overview explains QGroundControl and dual-sensor viewing', async () => {
   const overview = await readFile('docs/overview/what-is-openmavcam.md', 'utf8');
 

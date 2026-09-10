@@ -106,7 +106,7 @@ const config: Config = {
           items: [
             {
               label: 'Get started',
-              to: '/docs/getting-started/minimum-demo',
+              to: '/docs/getting-started/build',
             },
           ],
         },
