@@ -26,6 +26,8 @@ test('Pages deployment publishes the build artifact with least privilege', async
   for (const value of ['actions/configure-pages@v5', 'actions/upload-pages-artifact@v4', 'path: build', 'actions/deploy-pages@v4', 'pages: write', 'id-token: write']) {
     assert.match(workflow, new RegExp(value.replace(/[/.+]/g, '\\$&')));
   }
+  assert.match(workflow, /node-version: 24/);
+  assert.match(workflow, /enablement: true/);
 });
 
 test('test command uses Node built-in test discovery', async () => {
