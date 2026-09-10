@@ -1,0 +1,29 @@
+---
+title: D64TR
+sidebar_position: 1
+---
+
+import ProductSpecs from '@site/src/components/ProductSpecs';
+import {d64tr} from '@site/src/data/products/d64tr';
+
+# D64TR
+
+The D64TR is a dual-sensor EO/IR gimbal camera for MAVLink-enabled autonomous platforms. It combines a 64 MP RGB camera, a FLIR Boson+ 640 × 512 thermal camera, 3-axis stabilization, and on-device edge AI compute.
+
+## Highlights
+
+- MAVLink-ready imaging, capture, zoom, tracking, and status integration.
+- 15 TOPS edge AI for object detection and tracking workloads.
+- Gigabit Ethernet, 1080p HDMI output, CAN, UART, SBUS, PPM, and USB 3.0.
+
+## Specifications
+
+<ProductSpecs groups={d64tr.specificationGroups} />
+
+## Compute Platform
+
+The D64TR uses the Lantronix Open-Q 5165RB SOM based on Qualcomm Dragonwing QRB5165. See the [Lantronix Open-Q 5165RB SOM specification](https://www.lantronix.com/products/open-q-5165rb-som/) for the external component reference.
+
+## Integration
+
+Start with the [minimum demo](/docs/getting-started/minimum-demo), then connect the payload through the [MAVLink camera protocol](/docs/protocol/mavlink-camera-protocol).

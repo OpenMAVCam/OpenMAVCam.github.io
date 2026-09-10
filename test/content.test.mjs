@@ -10,7 +10,20 @@ test('Docusaurus is configured for the OpenMAVCam organization site', async () =
   assert.match(config, /projectName:\s*'OpenMAVCam\.github\.io'/);
 });
 
-test('the Docs navbar sidebar has an initial document', async () => {
+test('the Docs navbar sidebar has the OpenMAVCam overview', async () => {
   const sidebar = await readFile('sidebars.ts', 'utf8');
-  assert.match(sidebar, /docsSidebar:\s*\[[^\]]*'intro'/s);
+  assert.match(sidebar, /overview\/what-is-openmavcam/);
+});
+
+test('D64TR product page renders typed specifications', async () => {
+  const page = await readFile('docs/products/d64tr.mdx', 'utf8');
+  assert.match(page, /title: D64TR/);
+  assert.match(page, /ProductSpecs/);
+});
+
+test('Pages deployment publishes the build artifact with least privilege', async () => {
+  const workflow = await readFile('.github/workflows/deploy-pages.yml', 'utf8');
+  for (const value of ['actions/configure-pages@v5', 'actions/upload-pages-artifact@v4', 'path: build', 'actions/deploy-pages@v4', 'pages: write', 'id-token: write']) {
+    assert.match(workflow, new RegExp(value.replace(/[/.+]/g, '\\$&')));
+  }
 });

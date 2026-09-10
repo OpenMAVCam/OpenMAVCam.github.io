@@ -80,6 +80,8 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
+        {to: '/docs/products/d64tr', label: 'Products', position: 'left'},
+        {to: '/releases', label: 'Releases', position: 'left'},
         {
           href: 'https://github.com/OpenMAVCam',
           label: 'GitHub',
@@ -91,11 +93,11 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Getting Started',
           items: [
             {
               label: 'Documentation',
-              to: '/docs/intro',
+              to: '/docs/overview/what-is-openmavcam',
             },
           ],
         },
@@ -104,7 +106,7 @@ const config: Config = {
           items: [
             {
               label: 'Get started',
-              to: '/docs/intro',
+              to: '/docs/getting-started/minimum-demo',
             },
           ],
         },

@@ -1,0 +1,5 @@
+.groups section { margin: 2.5rem 0; }
+.scroll { overflow-x: auto; }
+.scroll table { width: 100%; border-collapse: collapse; }
+.scroll th, .scroll td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--ifm-color-emphasis-300); }
+.scroll th { min-width: 11rem; color: var(--ifm-color-primary-darkest); }

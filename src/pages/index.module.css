@@ -1,0 +1,6 @@
+.hero { display:grid; grid-template-columns:1.1fr .9fr; gap:3rem; align-items:center; max-width:1120px; margin:0 auto; padding:5rem 1.5rem; }
+.hero h1 { font-size:clamp(2.7rem,6vw,5.4rem); line-height:1; margin:.5rem 0 1rem; }
+.hero p { font-size:1.25rem; max-width:38rem; }.hero img { width:100%; border-radius:1.25rem; box-shadow:0 1.5rem 4rem #17314b55; }
+.kicker { color:var(--ifm-color-primary); font-weight:700; letter-spacing:.12em; font-size:.78rem !important; }.actions { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem; }
+.section { max-width:1120px; margin:0 auto; padding:2rem 1.5rem 5rem; }.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }.grid article { border:1px solid var(--ifm-color-emphasis-300); border-radius:.75rem; padding:1.25rem; }
+@media (max-width: 768px) { .hero { grid-template-columns:1fr; padding-top:3rem; }.grid { grid-template-columns:1fr; } }
