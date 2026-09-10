@@ -23,6 +23,17 @@ test('D64TR product page renders typed specifications', async () => {
   assert.match(page, /ProductSpecs/);
 });
 
+test('D64TR build and deployment docs contain the supported image workflow', async () => {
+  const build = await readFile('docs/products/d64tr/build.md', 'utf8');
+  const deploy = await readFile('docs/products/d64tr/deploy.md', 'utf8');
+  assert.match(build, /bitbake qti-ubuntu-robotics-image/);
+  assert.match(build, /32 GB RAM/);
+  assert.match(build, /200 GB/);
+  assert.match(deploy, /qrb5165-rb5/);
+  assert.match(deploy, /fastboot --slot all flash boot/);
+  assert.match(deploy, /fastboot --slot all flash system/);
+});
+
 test('Pages deployment publishes the build artifact with least privilege', async () => {
   const workflow = await readFile('.github/workflows/deploy-pages.yml', 'utf8');
   for (const value of ['actions/configure-pages@v5', 'actions/upload-pages-artifact@v4', 'path: build', 'actions/deploy-pages@v4', 'pages: write', 'id-token: write']) {
