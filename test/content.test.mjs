@@ -26,6 +26,14 @@ test('D64TR product page renders typed specifications', async () => {
   assert.doesNotMatch(home, /d64tr-on-uav\.png/);
 });
 
+test('homepage presents the light developer path', async () => {
+  const home = await readFile('src/pages/index.tsx', 'utf8');
+  const styles = await readFile('src/pages/index.module.css', 'utf8');
+  assert.match(home, /From camera to mission in four steps\./);
+  for (const step of ['Connect', 'Build', 'Deploy', 'Integrate']) assert.match(home, new RegExp(step));
+  assert.match(styles, /#e6f7ff/);
+});
+
 test('D64TR build and deployment docs contain the supported image workflow', async () => {
   const build = await readFile('docs/products/d64tr/build.md', 'utf8');
   const deploy = await readFile('docs/products/d64tr/deploy.md', 'utf8');

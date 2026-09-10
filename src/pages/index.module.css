@@ -1,6 +1,9 @@
-.hero { max-width:1120px; margin:0 auto; padding:5rem 1.5rem; }
-.hero h1 { font-size:clamp(2.7rem,6vw,5.4rem); line-height:1; margin:.5rem 0 1rem; }
-.hero p { font-size:1.25rem; max-width:38rem; }.hero img { width:100%; border-radius:1.25rem; box-shadow:0 1.5rem 4rem #17314b55; }
-.kicker { color:var(--ifm-color-primary); font-weight:700; letter-spacing:.12em; font-size:.78rem !important; }.actions { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem; }
-.section { max-width:1120px; margin:0 auto; padding:2rem 1.5rem 5rem; }.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }.grid article { border:1px solid var(--ifm-color-emphasis-300); border-radius:.75rem; padding:1.25rem; }
-@media (max-width: 768px) { .hero { padding-top:3rem; }.grid { grid-template-columns:1fr; } }
+.hero { max-width:1120px; margin:0 auto; padding:6rem 1.5rem 3rem; background:linear-gradient(150deg,#f8fcff,#e6f7ff); }
+.hero h1 { font-size:clamp(3rem,7vw,5.8rem); line-height:.98; letter-spacing:-.04em; margin:.6rem 0 1.25rem; color:#0c2c44; max-width:48rem; }
+.hero > div:first-child > p:not(.kicker) { font-size:1.25rem; line-height:1.55; color:#406176; max-width:40rem; }
+.kicker { color:#008edb; font-weight:700; letter-spacing:.13em; font-size:.76rem !important; }.actions { display:flex; flex-wrap:wrap; gap:1rem; margin:2rem 0 4rem; }
+.actions :global(.button--primary) { background:#078dd5; border-color:#078dd5; }.actions :global(.button--secondary) { background:#fff; color:#078dd5; border-color:#8ccff0; }
+.grid, .path { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }.grid article { background:#fff; border:1px solid #cfeafb; border-radius:.75rem; padding:1.35rem; box-shadow:0 .5rem 1.5rem #2c93c214; }.grid h3 { color:#0c2c44; }
+.pathSection { max-width:1120px; margin:0 auto; padding:5rem 1.5rem; }.pathSection h2 { font-size:clamp(2rem,4vw,3.25rem); color:#0c2c44; max-width:40rem; }
+.path { grid-template-columns:repeat(4,1fr); }.path article { padding:1.25rem 0; border-top:2px solid #9dd9f7; }.path span { color:#078dd5; font-weight:700; }.path h3 { margin:.5rem 0; color:#0c2c44; }.path p { color:#547184; }
+@media (max-width: 768px) { .hero { padding-top:4rem; }.grid, .path { grid-template-columns:1fr; }.actions { margin-bottom:3rem; } }
