@@ -185,6 +185,7 @@ test('Autopilot and QGroundControl guides separate real integration from camera-
   assert.doesNotMatch(sidebar, /px4-ardupilot-qgc/);
   await assert.rejects(access('docs/getting-started/px4-ardupilot-qgc.md'));
   await access('static/img/getting-started/autopilot-uart-wiring.svg');
+  await access('static/img/getting-started/qgc-camera-log-output.png');
 
   assert.match(autopilot, /title: Autopilot/);
   assert.match(autopilot, /docs\.px4\.io/);
@@ -199,6 +200,11 @@ test('Autopilot and QGroundControl guides separate real integration from camera-
   assert.match(qgc, /camera Ethernet/);
   assert.match(qgc, /does not validate gimbal control/);
   assert.match(qgc, /real autopilot/);
+  assert.match(qgc, /Camera Log Output/);
+  assert.match(qgc, /Camera\.VehicleCameraControl/);
+  assert.match(qgc, /Camera\.VehicleCameraControl\.Verbose/);
+  assert.match(qgc, /App Log Viewer/);
+  assert.match(qgc, /qgc-camera-log-output\.png/);
 });
 
 test('Configuration is a Getting Started guide with rebooted preview settings', async () => {
