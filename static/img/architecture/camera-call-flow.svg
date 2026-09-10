@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="990" viewBox="0 0 1500 990" role="img" aria-labelledby="title desc">
+  <title id="title">OpenMAVCam camera call flow</title>
+  <desc id="desc">MAVLink clients call MAVSDK server plugins in MavClient. CameraLocalClient loads visible and thermal camera libraries, exchanges tracking data with an AI service over a TCP socket, composes frames with RenderBridge, and manages an SD card through StorageManager.</desc>
+  <defs>
+    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#176b9c"/></marker>
+    <marker id="greenArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#398564"/></marker>
+    <marker id="purpleArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#7055a2"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#16334c}.title{font-size:28px;font-weight:700}.body{font-size:20px}.small{font-size:17px;fill:#587083}.label{font-size:17px;font-weight:700;fill:#176b9c}.green{font-size:17px;font-weight:700;fill:#398564}.purple{font-size:17px;font-weight:700;fill:#7055a2}</style>
+  </defs>
+  <rect width="1500" height="990" fill="#f4f9fc"/>
+  <text x="750" y="55" text-anchor="middle" class="title">OpenMAVCam Camera Call Flow</text>
+
+  <rect x="75" y="100" width="270" height="106" rx="18" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="210" y="143" text-anchor="middle" class="title">QGroundControl</text>
+  <text x="210" y="178" text-anchor="middle" class="small">Operator camera controls</text>
+  <rect x="75" y="251" width="270" height="106" rx="18" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="210" y="294" text-anchor="middle" class="title">Autopilot</text>
+  <text x="210" y="329" text-anchor="middle" class="small">PX4 · ArduPilot</text>
+  <path d="M345 153 H432" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#blueArrow)"/>
+  <path d="M345 304 H432" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#blueArrow)"/>
+  <text x="384" y="225" text-anchor="middle" class="label">MAVLink</text>
+
+  <rect x="442" y="90" width="350" height="290" rx="23" fill="#fff" stroke="#176b9c" stroke-width="4"/>
+  <text x="617" y="139" text-anchor="middle" class="title">MAVSDK · MavClient</text>
+  <rect x="478" y="169" width="278" height="48" rx="10" fill="#e8f3f9"/><text x="617" y="201" text-anchor="middle" class="body">CameraServer</text>
+  <rect x="478" y="233" width="132" height="48" rx="10" fill="#e8f3f9"/><text x="544" y="265" text-anchor="middle" class="body">ParamServer</text>
+  <rect x="624" y="233" width="132" height="48" rx="10" fill="#e8f3f9"/><text x="690" y="265" text-anchor="middle" class="body">TrackingServer</text>
+  <text x="617" y="326" text-anchor="middle" class="small">MAVLink requests · responses · status</text>
+
+  <path d="M792 235 H878" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#blueArrow)"/>
+  <rect x="888" y="142" width="390" height="185" rx="23" fill="#fff" stroke="#176b9c" stroke-width="4"/>
+  <text x="1083" y="194" text-anchor="middle" class="title">CameraLocalClient</text>
+  <text x="1083" y="235" text-anchor="middle" class="body">Local orchestration</text>
+  <text x="1083" y="273" text-anchor="middle" class="small">Load libraries · route commands</text>
+  <text x="1083" y="299" text-anchor="middle" class="small">Publish camera and stream state</text>
+
+  <rect x="70" y="490" width="292" height="160" rx="20" fill="#fff" stroke="#7055a2" stroke-width="3"/>
+  <text x="216" y="538" text-anchor="middle" class="title">Visible-light camera</text>
+  <text x="216" y="577" text-anchor="middle" class="body">MavCamera</text>
+  <text x="216" y="613" text-anchor="middle" class="small">libqcom_camera.so</text>
+  <rect x="423" y="490" width="292" height="160" rx="20" fill="#fff" stroke="#7055a2" stroke-width="3"/>
+  <text x="569" y="538" text-anchor="middle" class="title">Thermal camera</text>
+  <text x="569" y="577" text-anchor="middle" class="body">IRCamera</text>
+  <text x="569" y="613" text-anchor="middle" class="small">libir_camera.so</text>
+  <path d="M1010 327 C900 420 430 420 260 482" fill="none" stroke="#7055a2" stroke-width="4" marker-end="url(#purpleArrow)"/>
+  <path d="M1090 327 C960 430 750 430 620 482" fill="none" stroke="#7055a2" stroke-width="4" marker-end="url(#purpleArrow)"/>
+
+  <rect x="1010" y="466" width="400" height="208" rx="20" fill="#fff" stroke="#398564" stroke-width="3"/>
+  <text x="1210" y="516" text-anchor="middle" class="title">AI service</text>
+  <text x="1210" y="554" text-anchor="middle" class="body">Object detection / tracking</text>
+  <text x="1210" y="591" text-anchor="middle" class="small">TCP socket · newline JSON results</text>
+  <text x="1210" y="622" text-anchor="middle" class="small">Control packets for detection / point tracking</text>
+  <path d="M1175 327 C1210 368 1210 407 1210 458" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <path d="M1245 458 C1285 407 1285 368 1238 327" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <text x="1378" y="395" text-anchor="middle" class="green">Tracking data + control</text>
+
+  <rect x="173" y="757" width="360" height="160" rx="20" fill="#fff" stroke="#398564" stroke-width="3"/>
+  <text x="353" y="805" text-anchor="middle" class="title">RenderBridge</text>
+  <text x="353" y="844" text-anchor="middle" class="body">librender_bridge.so</text>
+  <text x="353" y="879" text-anchor="middle" class="small">Weston · DRM · V4L2 · AI / OSD overlays</text>
+  <rect x="790" y="757" width="360" height="160" rx="20" fill="#fff" stroke="#398564" stroke-width="3"/>
+  <text x="970" y="805" text-anchor="middle" class="title">StorageManager</text>
+  <text x="970" y="844" text-anchor="middle" class="body">libstorage_manager.so</text>
+  <text x="970" y="879" text-anchor="middle" class="small">SD card · capacity · media path · format</text>
+  <path d="M255 650 C275 696 310 710 335 748" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <path d="M610 650 C560 701 470 705 400 748" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <path d="M1100 674 C1080 708 1035 718 997 748" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <path d="M1075 327 C1040 470 1015 615 970 748" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <text x="750" y="960" text-anchor="middle" class="small">Frames and AI overlays feed rendering; capture media and capacity state are managed separately through the SD card service.</text>
+</svg>

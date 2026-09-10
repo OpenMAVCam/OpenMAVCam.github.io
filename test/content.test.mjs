@@ -85,6 +85,87 @@ test('D64TR build and deployment docs contain the supported image workflow', asy
   assert.match(deploy, /fastboot --slot all flash system/);
 });
 
+test('Camera architecture documents MAVSDK orchestration and local camera services', async () => {
+  const camera = await readFile('docs/architecture/camera.md', 'utf8');
+
+  await access('static/img/architecture/camera-call-flow.svg');
+  for (const phrase of [
+    'Camera Architecture',
+    'MAVSDK',
+    'CameraServer',
+    'ParamServer',
+    'TrackingServer',
+    'MavClient',
+    'CameraLocalClient',
+    'MavCamera',
+    'IRCamera',
+    'TCP socket',
+    'newline-delimited JSON',
+    'AI bounding boxes',
+    'RenderBridge',
+    'Weston, DRM, or V4L2',
+    'librender_bridge.so',
+    'StorageManager',
+    'libstorage_manager.so',
+    'SD card',
+    'camera-call-flow.svg',
+  ]) assert.ok(camera.includes(phrase), `Camera page includes ${phrase}`);
+});
+
+test('Gimbal architecture documents v1 and v2 compatibility with angle and velocity control', async () => {
+  const gimbal = await readFile('docs/architecture/gimbal.md', 'utf8');
+
+  await access('static/img/architecture/gimbal-protocol-flow.svg');
+  for (const phrase of [
+    'Gimbal Protocol Compatibility',
+    'Gimbal Protocol v1',
+    'Gimbal Protocol v2',
+    'MAV_CMD_DO_MOUNT_CONFIGURE',
+    'MAV_CMD_DO_MOUNT_CONTROL',
+    'MOUNT_ORIENTATION',
+    'Gimbal Manager',
+    'Gimbal Device',
+    'GIMBAL_MANAGER_SET_ATTITUDE',
+    'GIMBAL_MANAGER_SET_PITCHYAW',
+    'GIMBAL_DEVICE_ATTITUDE_STATUS',
+    'Angle Mode',
+    'Velocity Mode',
+    'Angle + Velocity',
+    'Manual normalized control',
+    'vehicle-follow',
+    'earth-lock',
+    'gimbal-protocol-flow.svg',
+    'mavlink.io/en/services/gimbal_v2.html',
+  ]) assert.ok(gimbal.includes(phrase), `Gimbal page includes ${phrase}`);
+});
+
+test('MAVLink Camera Protocol maps v2 semantics to the mav-cam CameraServer implementation', async () => {
+  const protocol = await readFile('docs/protocol/mavlink-camera-protocol.md', 'utf8');
+
+  await access('static/img/protocol/mavlink-camera-protocol-flow.svg');
+  for (const phrase of [
+    'Camera Protocol v2',
+    'CAMERA_INFORMATION',
+    'MAV_CMD_REQUEST_MESSAGE',
+    'CameraServer',
+    'CameraLocalClient',
+    'set_information()',
+    'VIDEO_STREAM_INFORMATION',
+    'set_video_stream_info()',
+    'rtsp://',
+    'CAMERA_SETTINGS',
+    'STORAGE_INFORMATION',
+    'CAMERA_CAPTURE_STATUS',
+    'COMMAND_ACK',
+    'Camera Definition File',
+    'ParamServer',
+    'TrackingServer',
+    'Video frames are not transported over MAVLink',
+    'mavlink-camera-protocol-flow.svg',
+    'mavlink.io/en/services/camera.html',
+  ]) assert.ok(protocol.includes(phrase), `Camera protocol page includes ${phrase}`);
+});
+
 test('MAVLink architecture explains interoperability, control scope, and extension paths', async () => {
   const mavlink = await readFile('docs/architecture/mavlink.md', 'utf8');
 

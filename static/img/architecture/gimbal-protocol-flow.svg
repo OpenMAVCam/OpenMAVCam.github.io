@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="700" viewBox="0 0 1440 700" role="img" aria-labelledby="title desc">
+  <title id="title">OpenMAVCam gimbal protocol compatibility flow</title>
+  <desc id="desc">QGroundControl and mission controllers connect through an autopilot Gimbal Manager. Modern Gimbal Protocol v2 uses manager and device messages, while the legacy v1 mount commands remain supported. The Gimbal Device returns attitude status.</desc>
+  <defs>
+    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#176b9c"/></marker>
+    <marker id="greenArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#398564"/></marker>
+    <marker id="orangeArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#b97524"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#16334c}.title{font-size:28px;font-weight:700}.body{font-size:20px}.small{font-size:17px;fill:#587083}.label{font-size:17px;font-weight:700;fill:#176b9c}.green{font-size:17px;font-weight:700;fill:#398564}.orange{font-size:17px;font-weight:700;fill:#b97524}</style>
+  </defs>
+  <rect width="1440" height="700" fill="#f4f9fc"/>
+  <text x="720" y="56" text-anchor="middle" class="title">OpenMAVCam Gimbal Protocol Compatibility</text>
+  <rect x="60" y="190" width="290" height="170" rx="20" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="205" y="244" text-anchor="middle" class="title">QGroundControl</text>
+  <text x="205" y="284" text-anchor="middle" class="body">Mission · operator · AI</text>
+  <text x="205" y="320" text-anchor="middle" class="small">Request and release control</text>
+  <path d="M350 275 H490" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#blueArrow)"/>
+  <text x="420" y="250" text-anchor="middle" class="label">MAVLink</text>
+  <rect x="500" y="153" width="370" height="245" rx="23" fill="#fff" stroke="#176b9c" stroke-width="4"/>
+  <text x="685" y="207" text-anchor="middle" class="title">Gimbal Manager</text>
+  <text x="685" y="245" text-anchor="middle" class="body">Usually on the autopilot</text>
+  <rect x="544" y="279" width="282" height="55" rx="10" fill="#e8f3f9"/>
+  <text x="685" y="315" text-anchor="middle" class="body">v2 ownership · capability · setpoints</text>
+  <text x="685" y="370" text-anchor="middle" class="small">Coordinates control sources</text>
+  <path d="M870 275 H1000" fill="none" stroke="#398564" stroke-width="5" marker-end="url(#greenArrow)"/>
+  <text x="935" y="250" text-anchor="middle" class="green">v2 device commands</text>
+  <rect x="1010" y="153" width="365" height="245" rx="23" fill="#fff" stroke="#398564" stroke-width="4"/>
+  <text x="1192" y="207" text-anchor="middle" class="title">Gimbal Device</text>
+  <text x="1192" y="245" text-anchor="middle" class="body">OpenMAVCam three-axis gimbal</text>
+  <text x="1192" y="289" text-anchor="middle" class="small">Angle · velocity · stabilization</text>
+  <text x="1192" y="326" text-anchor="middle" class="small">GIMBAL_DEVICE_ATTITUDE_STATUS</text>
+  <path d="M1010 355 C925 470 815 470 755 398" fill="none" stroke="#398564" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <text x="920" y="487" text-anchor="middle" class="green">Attitude status broadcast</text>
+  <rect x="158" y="495" width="454" height="130" rx="20" fill="#fff9ee" stroke="#b97524" stroke-width="3"/>
+  <text x="385" y="544" text-anchor="middle" class="title">Gimbal Protocol v1 compatibility</text>
+  <text x="385" y="578" text-anchor="middle" class="small">MAV_CMD_DO_MOUNT_CONFIGURE</text>
+  <text x="385" y="607" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:15px;fill:#587083">MAV_CMD_DO_MOUNT_CONTROL · MOUNT_ORIENTATION</text>
+  <path d="M612 560 C785 560 960 535 1080 405" fill="none" stroke="#b97524" stroke-width="4" stroke-dasharray="11 8" marker-end="url(#orangeArrow)"/>
+  <text x="810" y="578" text-anchor="middle" class="orange">Legacy mount path</text>
+  <text x="720" y="670" text-anchor="middle" class="small">Preferred: v2 Manager / Device control. Compatibility: v1 Mount commands for deployed legacy systems.</text>
+</svg>
