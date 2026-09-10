@@ -8,15 +8,15 @@
     "description": "The alt text of navbar logo"
   },
   "item.label.Docs": {
-    "message": "Docs",
+    "message": "文档",
     "description": "Navbar item with label Docs"
   },
   "item.label.Products": {
-    "message": "Products",
+    "message": "产品",
     "description": "Navbar item with label Products"
   },
   "item.label.Releases": {
-    "message": "Releases",
+    "message": "发布说明",
     "description": "Navbar item with label Releases"
   },
   "item.label.GitHub": {
