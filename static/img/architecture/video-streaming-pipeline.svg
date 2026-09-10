@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
+  <title id="title">OpenMAVCam single-stream video architecture</title>
+  <desc id="desc">Visible and thermal cameras, AI bounding boxes, and OSD are composited by Weston into one preview, encoded as H.264 or H.265, published as RTSP, and displayed by QGroundControl. MAVLink carries stream discovery and controls separately.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#176b9c"/></marker>
+    <marker id="greenArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#398564"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#16334c}.title{font-size:29px;font-weight:700}.body{font-size:21px}.small{font-size:18px;fill:#587083}.label{font-size:18px;font-weight:700;fill:#176b9c}.green{font-size:18px;font-weight:700;fill:#398564}</style>
+  </defs>
+  <rect width="1440" height="760" fill="#f4f9fc"/>
+  <text x="720" y="58" text-anchor="middle" class="title">OpenMAVCam Single-Stream Video Pipeline</text>
+  <rect x="58" y="135" width="250" height="106" rx="18" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="183" y="180" text-anchor="middle" class="title">RGB camera</text>
+  <text x="183" y="216" text-anchor="middle" class="small">Visible-light frames</text>
+  <rect x="58" y="283" width="250" height="106" rx="18" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="183" y="328" text-anchor="middle" class="title">Thermal camera</text>
+  <text x="183" y="364" text-anchor="middle" class="small">Infrared frames</text>
+  <rect x="58" y="431" width="250" height="106" rx="18" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="183" y="476" text-anchor="middle" class="title">AI + OSD</text>
+  <text x="183" y="512" text-anchor="middle" class="small">Bounding boxes · status</text>
+  <path d="M308 188 H422" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M308 336 H422" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M308 484 H422" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="430" y="128" width="340" height="418" rx="23" fill="#fff" stroke="#176b9c" stroke-width="4"/>
+  <text x="600" y="184" text-anchor="middle" class="title">Weston composition</text>
+  <text x="600" y="222" text-anchor="middle" class="body">One composed preview</text>
+  <rect x="475" y="260" width="250" height="72" rx="11" fill="#e8f3f9"/>
+  <text x="600" y="305" text-anchor="middle" class="body">Sensor layout</text>
+  <text x="600" y="363" text-anchor="middle" class="small">Side-by-side · PIP</text>
+  <text x="600" y="395" text-anchor="middle" class="small">Superimpose · Mix</text>
+  <rect x="475" y="430" width="250" height="72" rx="11" fill="#e5f3eb"/>
+  <text x="600" y="475" text-anchor="middle" class="body">AI / OSD layers</text>
+  <path d="M770 336 H868" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="877" y="251" width="230" height="170" rx="20" fill="#fff" stroke="#176b9c" stroke-width="3"/>
+  <text x="992" y="305" text-anchor="middle" class="title">Encoder</text>
+  <text x="992" y="345" text-anchor="middle" class="body">H.264 / H.265</text>
+  <text x="992" y="381" text-anchor="middle" class="small">One encoded stream</text>
+  <path d="M1107 336 H1195" fill="none" stroke="#398564" stroke-width="5" marker-end="url(#greenArrow)"/>
+  <text x="1151" y="230" text-anchor="middle" class="green">RTSP over Ethernet</text>
+  <rect x="1203" y="251" width="180" height="170" rx="20" fill="#fff" stroke="#398564" stroke-width="3"/>
+  <text x="1293" y="305" text-anchor="middle" class="title">QGC</text>
+  <text x="1293" y="345" text-anchor="middle" class="body">One decoder</text>
+  <text x="1293" y="381" text-anchor="middle" class="small">RTSP /live</text>
+  <path d="M117 673 H1290" fill="none" stroke="#176b9c" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+  <text x="715" y="711" text-anchor="middle" class="label">MAVLink Camera Protocol: stream URI, controls, capture, status, and telemetry</text>
+</svg>

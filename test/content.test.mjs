@@ -85,6 +85,57 @@ test('D64TR build and deployment docs contain the supported image workflow', asy
   assert.match(deploy, /fastboot --slot all flash system/);
 });
 
+test('MAVLink architecture explains interoperability, control scope, and extension paths', async () => {
+  const mavlink = await readFile('docs/architecture/mavlink.md', 'utf8');
+
+  await access('static/img/architecture/mavlink-control-plane.svg');
+  for (const phrase of [
+    'What Is MAVLink?',
+    'XML message definitions',
+    'publish-subscribe',
+    'point-to-point',
+    'Why OpenMAVCam Uses MAVLink',
+    'MAVLink-compatible autopilot',
+    'common.xml',
+    'MAVLink 2 extension fields',
+    'custom dialect',
+    'MAVLink is the control plane',
+    'Video frames are not transported over MAVLink',
+    'mavlink.io',
+    'mavlink-control-plane.svg',
+  ]) assert.ok(mavlink.includes(phrase), `MAVLink page includes ${phrase}`);
+});
+
+test('Video Streaming documents the composed single-stream pipeline for QGroundControl', async () => {
+  const streaming = await readFile('docs/architecture/video-streaming.md', 'utf8');
+
+  await access('static/img/architecture/video-streaming-pipeline.svg');
+  for (const phrase of [
+    'Single-Stream Video Architecture',
+    'Weston composition',
+    'RGB',
+    'thermal',
+    'OSD',
+    'AI bounding boxes',
+    'Side-by-side',
+    'Picture-in-Picture',
+    'Superimpose',
+    'Mix',
+    'one composed preview',
+    'H.264 or H.265',
+    'rtsp://',
+    'MAVLink Camera Protocol',
+    'QGroundControl',
+    'one decoder',
+    'does not need to synchronize',
+    'low-latency',
+    'fast integration',
+    'video-streaming-pipeline.svg',
+    '[Configuration](/docs/api-reference/configuration-interfaces)',
+  ]) assert.ok(streaming.includes(phrase), `Video Streaming page includes ${phrase}`);
+  assert.ok(!streaming.includes('/docs/getting-started/configuration-interfaces'));
+});
+
 test('Getting Started combines build and deploy while retaining the shared flash sequence', async () => {
   const sidebar = await readFile('sidebars.ts', 'utf8');
   const guide = await readFile('docs/getting-started/build.md', 'utf8');

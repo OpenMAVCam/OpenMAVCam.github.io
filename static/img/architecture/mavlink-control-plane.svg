@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="640" viewBox="0 0 1400 640" role="img" aria-labelledby="title desc">
+  <title id="title">OpenMAVCam MAVLink control-plane topology</title>
+  <desc id="desc">An autopilot, OpenMAVCam camera gimbal, and QGroundControl exchange MAVLink commands and telemetry. A direct video stream runs from the camera to QGroundControl.</desc>
+  <defs>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#176b9c"/></marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#398564"/></marker>
+    <style>text { font-family: Arial, sans-serif; fill: #16334c; } .title { font-size: 28px; font-weight: 700; } .body { font-size: 21px; } .small { font-size: 18px; fill: #587083; } .label { font-size: 18px; font-weight: 700; fill: #176b9c; }</style>
+  </defs>
+  <rect width="1400" height="640" fill="#f4f9fc"/>
+  <text x="700" y="60" text-anchor="middle" class="title">OpenMAVCam MAVLink Control Plane</text>
+  <rect x="75" y="205" width="315" height="220" rx="22" fill="#ffffff" stroke="#176b9c" stroke-width="3"/>
+  <text x="232" y="270" text-anchor="middle" class="title">Autopilot</text>
+  <text x="232" y="315" text-anchor="middle" class="body">PX4 · ArduPilot</text>
+  <text x="232" y="355" text-anchor="middle" class="small">Routes payload MAVLink</text>
+  <text x="232" y="385" text-anchor="middle" class="small">Real FC enables gimbal control</text>
+  <rect x="540" y="160" width="320" height="310" rx="22" fill="#ffffff" stroke="#176b9c" stroke-width="4"/>
+  <text x="700" y="225" text-anchor="middle" class="title">OpenMAVCam</text>
+  <text x="700" y="270" text-anchor="middle" class="body">Camera · Gimbal · AI</text>
+  <text x="700" y="320" text-anchor="middle" class="small">Discovery · capture · zoom</text>
+  <text x="700" y="350" text-anchor="middle" class="small">gimbal · tracking · status</text>
+  <text x="700" y="410" text-anchor="middle" class="small">Direct H.264/H.265 video source</text>
+  <rect x="1010" y="205" width="315" height="220" rx="22" fill="#ffffff" stroke="#176b9c" stroke-width="3"/>
+  <text x="1167" y="270" text-anchor="middle" class="title">QGroundControl</text>
+  <text x="1167" y="315" text-anchor="middle" class="body">Ground Control Station</text>
+  <text x="1167" y="355" text-anchor="middle" class="small">Camera controls · telemetry</text>
+  <text x="1167" y="385" text-anchor="middle" class="small">Video display · AI status</text>
+  <path d="M390 275 C455 275 475 275 540 275" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M540 335 C475 335 455 335 390 335" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <text x="465" y="250" text-anchor="middle" class="label">MAVLink UART</text>
+  <path d="M860 275 C925 275 945 275 1010 275" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M1010 335 C945 335 925 335 860 335" fill="none" stroke="#176b9c" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <text x="935" y="250" text-anchor="middle" class="label">MAVLink UDP</text>
+  <path d="M860 430 C940 540 1055 540 1120 430" fill="none" stroke="#398564" stroke-width="6" marker-end="url(#arrowGreen)"/>
+  <text x="990" y="550" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:20px;font-weight:700;fill:#398564">Direct video stream over Ethernet</text>
+  <text x="700" y="605" text-anchor="middle" class="small">Standard MAVLink messages first; MAVLink 2 extensions or a custom dialect only when required.</text>
+</svg>
