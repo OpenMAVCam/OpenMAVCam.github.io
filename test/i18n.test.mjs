@@ -78,3 +78,13 @@ test('Chinese guides preserve commands and Protocol preserves MAVLink identifier
   const sidebar = await readFile('i18n/zh-CN/docusaurus-plugin-content-docs/current.json', 'utf8');
   for (const label of ['概览', '快速开始', '协议']) assert.match(sidebar, new RegExp(label));
 });
+
+test('Chinese locale contains remaining public docs and localized release content', async () => {
+  const root = 'i18n/zh-CN/docusaurus-plugin-content-docs/current';
+  const pages = ['hardware-integration/platforms.md', 'api-reference/configuration-interfaces.md', 'api-reference/cpp.md', 'api-reference/mavlink-messages.md', 'developer-guide/repository-structure.md', 'developer-guide/coding-style.md', 'developer-guide/contribution.md', 'developer-guide/license.md'];
+  for (const page of pages) await access(`${root}/${page}`);
+  const configuration = await readFile(`${root}/api-reference/configuration-interfaces.md`, 'utf8');
+  assert.match(configuration, /adb shell/);
+  assert.match(configuration, /persist\.video\.preview\.encoder/);
+  assert.match(await readFile('i18n/zh-CN/docusaurus-plugin-content-blog/2026-09-10-openmavcam-website-launch.md', 'utf8'), /title: OpenMAVCam 网站发布/);
+});

@@ -1,14 +1,14 @@
 {
   "title": {
-    "message": "Blog",
+    "message": "发布说明",
     "description": "The title for the blog used in SEO"
   },
   "description": {
-    "message": "Blog",
+    "message": "OpenMAVCam 发布说明与更新日志",
     "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
-    "message": "Recent posts",
+    "message": "近期发布",
     "description": "The label for the left sidebar"
   }
 }
