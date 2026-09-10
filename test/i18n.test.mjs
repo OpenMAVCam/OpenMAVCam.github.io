@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {access, readFile} from 'node:fs/promises';
+import {access, readFile, readdir} from 'node:fs/promises';
+import path from 'node:path';
 
 test('Docusaurus provides root English and prefixed Simplified Chinese locales', async () => {
   const config = await readFile('docusaurus.config.ts', 'utf8');
@@ -87,4 +88,23 @@ test('Chinese locale contains remaining public docs and localized release conten
   assert.match(configuration, /adb shell/);
   assert.match(configuration, /persist\.video\.preview\.encoder/);
   assert.match(await readFile('i18n/zh-CN/docusaurus-plugin-content-blog/2026-09-10-openmavcam-website-launch.md', 'utf8'), /title: OpenMAVCam 网站发布/);
+});
+
+async function markdownFiles(directory) {
+  const entries = await readdir(directory, {withFileTypes: true});
+  return (await Promise.all(entries.map(async (entry) => {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) return markdownFiles(target);
+    return /\.mdx?$/.test(entry.name) ? [target] : [];
+  }))).flat();
+}
+
+test('every active English public document has a Chinese counterpart at the same relative path', async () => {
+  const english = (await markdownFiles('docs'))
+    .filter((file) => !file.startsWith('docs/superpowers/'))
+    .map((file) => path.relative('docs', file));
+
+  for (const relativePath of english) {
+    await access(path.join('i18n/zh-CN/docusaurus-plugin-content-docs/current', relativePath));
+  }
 });
