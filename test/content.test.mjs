@@ -348,7 +348,7 @@ test('OpenMAVCam overview explains QGroundControl and dual-sensor viewing', asyn
     'Side-by-side',
   ]) assert.ok(overview.includes(phrase), `overview includes ${phrase}`);
 
-  for (const asset of ['qgroundcontrol-mountain-d64tr.png', 'visible-thermal-side-by-side.png', 'ai-person-detection-qgc.png']) {
+  for (const asset of ['qgroundcontrol-aerial-video.png', 'visible-thermal-side-by-side.png', 'ai-person-detection-qgc.png']) {
     await access(`static/img/overview/${asset}`);
   }
 

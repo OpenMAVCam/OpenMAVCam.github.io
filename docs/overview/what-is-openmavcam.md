@@ -15,11 +15,11 @@ It is designed to connect directly with PX4 and ArduPilot based autopilots witho
 
 ## QGroundControl Ready
 
-OpenMAVCam is fully compatible with QGroundControl (QGC). A D64TR payload can present its live video and camera controls in the ground station while the autopilot remains on its standard MAVLink interface.
+OpenMAVCam is fully compatible with QGroundControl (QGC). An OpenMAVCam camera platform can present its live video and camera controls in the ground station while the autopilot remains on its standard MAVLink interface.
 
 <figure>
-  <img src="/img/overview/qgroundcontrol-mountain-d64tr.png" alt="QGroundControl showing a D64TR live mountain video view and payload controls" />
-  <figcaption>QGroundControl can present a D64TR live view and camera controls through MAVLink.</figcaption>
+  <img src="/img/overview/qgroundcontrol-aerial-video.png" alt="QGroundControl showing a live aerial mountain-valley video view and camera controls" />
+  <figcaption>QGroundControl can present an OpenMAVCam live aerial view and camera controls through MAVLink.</figcaption>
 </figure>
 
 ## AI Functions for Your Mission

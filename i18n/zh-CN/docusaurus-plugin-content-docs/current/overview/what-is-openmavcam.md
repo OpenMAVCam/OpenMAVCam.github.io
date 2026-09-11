@@ -16,11 +16,11 @@ OpenMAVCam 是一套面向自主平台的开源 MAVLink 原生相机软件栈。
 
 ## 已适配 QGroundControl
 
-OpenMAVCam 完全兼容 QGroundControl (QGC)。D64TR 载荷可在地面站中显示实时视频和相机控制，而飞控仍使用标准 MAVLink 接口。
+OpenMAVCam 完全兼容 QGroundControl (QGC)。OpenMAVCam camera platform 可在地面站中显示实时视频和相机控制，而飞控仍使用标准 MAVLink 接口。
 
 <figure>
-  <img src="/img/overview/qgroundcontrol-mountain-d64tr.png" alt="QGroundControl 显示 D64TR 山地实时视频和载荷控制" />
-  <figcaption>QGroundControl 可通过 MAVLink 显示 D64TR 实时画面和相机控制。</figcaption>
+  <img src="/img/overview/qgroundcontrol-aerial-video.png" alt="QGroundControl 显示山地河谷航拍实时视频和相机控制" />
+  <figcaption>QGroundControl 可通过 MAVLink 显示 OpenMAVCam 航拍实时画面和相机控制。</figcaption>
 </figure>
 
 ## 面向任务的 AI 功能
