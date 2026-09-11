@@ -39,7 +39,7 @@ D64TR 是第一款产品：一款双光、三轴云台相机，并提供边缘 A
 | 计算平台 | NDAA-compliant 设计；Qualcomm Dragonwing QRB5165；Lantronix Open-Q 5165RB SOM；8 GB LPDDR5（2750 MHz）+ 128 GB UFS |
 | 计算能力 | Kryo 585 八核 CPU（最高 2.84 GHz）、Hexagon 698 DSP、Adreno 650 GPU、Spectra 480 ISP；15 TOPS AI Engine |
 
-产品页链接至 [Lantronix Open-Q 5165RB SOM 官方规格](https://www.lantronix.com/products/open-q-5165rb-som/)，并避免声明长期供货承诺：官方产品页目前标示其为 Last Time Buy。
+产品页链接至 [Lantronix Open-Q 5165RB SOM 官方规格](https://www.lantronix.com/products/open-q-5165rb-som/)，并避免未经供应商确认的长期供货或生命周期承诺。
 
 ## 视觉资产
 

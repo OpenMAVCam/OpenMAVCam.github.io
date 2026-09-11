@@ -26,6 +26,14 @@ test('D64TR product page renders typed specifications', async () => {
   assert.match(home, /d64tr-on-uav\.png/);
 });
 
+test('D64TR product pages state the current supplier lifecycle position in both languages', async () => {
+  const english = await readFile('docs/products/d64tr.mdx', 'utf8');
+  const chinese = await readFile('i18n/zh-CN/docusaurus-plugin-content-docs/current/products/d64tr.mdx', 'utf8');
+
+  assert.match(english, /is not currently labeled as Last Time Buy/);
+  assert.match(chinese, /当前未标注为 Last Time Buy/);
+});
+
 test('homepage presents the light developer path', async () => {
   const home = await readFile('src/pages/index.tsx', 'utf8');
   const styles = await readFile('src/pages/index.module.css', 'utf8');
