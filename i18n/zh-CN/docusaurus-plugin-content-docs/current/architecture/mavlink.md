@@ -44,4 +44,4 @@ MAVLink 让 OpenMAVCam 可接入任意兼容 MAVLink 的飞控、地面站、伴
 3. 仅为标准消息无法表示的能力添加 MAVLink 2 扩展字段或 custom dialect。
 4. 记录扩展、版本及所需对端实现。
 
-消息级细节请继续阅读 [MAVLink 相机协议](/docs/protocol/mavlink-camera-protocol)和 [MAVLink 消息](/docs/api-reference/mavlink-messages)。
+消息级细节请继续阅读 [MAVLink 相机协议](/docs/protocol/mavlink-camera-protocol)。

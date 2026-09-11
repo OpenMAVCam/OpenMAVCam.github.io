@@ -55,4 +55,4 @@ A custom dialect should include `common.xml`, use uniquely assigned message IDs,
 3. Add MAVLink 2 extension fields or a custom dialect only for capabilities that cannot be represented by the standard messages.
 4. Document the extension, its version, and the peer implementations required to use it.
 
-For message-level detail, continue to the [MAVLink Camera Protocol](/docs/protocol/mavlink-camera-protocol) and [MAVLink Messages](/docs/api-reference/mavlink-messages) pages.
+For message-level detail, continue to the [MAVLink Camera Protocol](/docs/protocol/mavlink-camera-protocol) page.

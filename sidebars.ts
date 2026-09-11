@@ -20,7 +20,7 @@ const sidebars: SidebarsConfig = {
     {type: 'category', label: 'Getting Started', items: ['getting-started/build', 'getting-started/autopilot', 'getting-started/qgroundcontrol', 'api-reference/configuration-interfaces']},
     {type: 'category', label: 'Protocol', items: ['protocol/mavlink-camera-protocol', 'protocol/camera-information', 'protocol/capture', 'protocol/zoom', 'protocol/tracking', 'protocol/status']},
     {type: 'category', label: 'Hardware Integration', items: ['hardware-integration/platforms']},
-    {type: 'category', label: 'API Reference', items: ['api-reference/cpp', 'api-reference/mavlink-messages']},
+    {type: 'category', label: 'API Reference', items: ['api-reference/mav-cam', 'api-reference/qcom-camera', 'api-reference/ir-cam', 'api-reference/storage', 'api-reference/render-bridge']},
     {type: 'category', label: 'Developer Guide', items: ['developer-guide/repository-structure', 'developer-guide/coding-style', 'developer-guide/contribution', 'developer-guide/license']},
   ],
 };

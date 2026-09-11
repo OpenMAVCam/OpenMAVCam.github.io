@@ -80,13 +80,20 @@ test('Chinese guides preserve commands and Protocol preserves MAVLink identifier
   for (const label of ['概览', '快速开始', '协议']) assert.match(sidebar, new RegExp(label));
 });
 
-test('Chinese locale contains remaining public docs and localized release content', async () => {
+test('Chinese locale contains module-oriented API reference docs and localized release content', async () => {
   const root = 'i18n/zh-CN/docusaurus-plugin-content-docs/current';
-  const pages = ['hardware-integration/platforms.md', 'api-reference/configuration-interfaces.md', 'api-reference/cpp.md', 'api-reference/mavlink-messages.md', 'developer-guide/repository-structure.md', 'developer-guide/coding-style.md', 'developer-guide/contribution.md', 'developer-guide/license.md'];
+  const pages = ['hardware-integration/platforms.md', 'api-reference/configuration-interfaces.md', 'api-reference/mav-cam.md', 'api-reference/qcom-camera.md', 'api-reference/ir-cam.md', 'api-reference/storage.md', 'api-reference/render-bridge.md', 'developer-guide/repository-structure.md', 'developer-guide/coding-style.md', 'developer-guide/contribution.md', 'developer-guide/license.md'];
   for (const page of pages) await access(`${root}/${page}`);
   const configuration = await readFile(`${root}/api-reference/configuration-interfaces.md`, 'utf8');
   assert.match(configuration, /adb shell/);
   assert.match(configuration, /persist\.video\.preview\.encoder/);
+  const sidebar = await readFile('sidebars.ts', 'utf8');
+  const apiReference = sidebar.match(/label: 'API Reference', items: \[([^\]]+)\]/)?.[1] ?? '';
+  for (const page of ['mav-cam', 'qcom-camera', 'ir-cam', 'storage', 'render-bridge']) {
+    assert.ok(apiReference.includes(`api-reference/${page}`));
+  }
+  assert.ok(!apiReference.includes('api-reference/cpp'));
+  assert.ok(!apiReference.includes('api-reference/mavlink-messages'));
   assert.match(await readFile('i18n/zh-CN/docusaurus-plugin-content-blog/2026-09-10-openmavcam-website-launch.md', 'utf8'), /title: OpenMAVCam 网站发布/);
 });
 
